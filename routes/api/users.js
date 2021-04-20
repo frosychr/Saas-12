@@ -15,7 +15,8 @@ const User = require('../../models/User');
 
 router.post('/',
 [
-    check('name','Name is required').not().isEmpty(),
+    check('firstname','Firstname is required').not().isEmpty(),
+    check('lastname','Lastname is required').not().isEmpty(),
     check('email','Please include a valid email').isEmail(),
     check('password', 'Please enter a valid password').isLength({min : 6})
 ],
@@ -26,7 +27,7 @@ async (req,res) =>{
    }
 
 
-   const {name,email,password} = req.body;
+   const {firstname,lastname,email,password} = req.body;
    try {
      let user = await User.findOne({ email });
      if (user) {
@@ -42,14 +43,12 @@ async (req,res) =>{
         }),
         { forceHttps: true }
       );
-
       user = new User({
-        name,
+          firstname,
+          lastname,
         email,
-        avatar,
         password
       });
-
       const salt = await bcrypt.genSalt(10);
 
       // user takes the password and creates a hash to put the user password
