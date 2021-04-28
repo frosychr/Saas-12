@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.3",
     "morgan": "~1.9.1",
+    "node": "^16.0.0",
     "normalize-url": "^6.0.0",
     "pug": "2.0.0-beta11",
     "request": "^2.88.2"
