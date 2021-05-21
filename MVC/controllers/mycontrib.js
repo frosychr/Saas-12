@@ -2,7 +2,6 @@ const User = require('../models/user');
 const Question = require('../models/question');
 const Answer = require('../models/answers');
 
-
 exports.getmycontrib = async (req, res) => {
     const userid = req.session.user._id
     const quest_ans = await Promise.all([
@@ -62,5 +61,4 @@ exports.getmycontrib = async (req, res) => {
                     path: '/mycontrib',
                     isAuthenticated: req.session.isLoggedIn
                 });
-
     }

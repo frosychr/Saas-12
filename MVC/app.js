@@ -1,5 +1,4 @@
 const path = require('path');
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -72,9 +71,6 @@ app.use((req,res,next) => {
     next();
 })
 
-
-
-
 // routes
 app.use(landing);
 app.use(allquestiosns);
@@ -95,7 +91,7 @@ app.use((req, res, next) => {
 
 });
 
-
+// connect to database and start at port 3000
 mongoose
     .connect(MONGODB_URI)
     .then(result => {

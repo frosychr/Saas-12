@@ -29,7 +29,6 @@ exports.contactpost = async (req,res,next) => {
         <li>Email: ${req.body.email}</li>
         <li>Comments: ${req.body.comments}</li>
 </ul>
-        
 `;
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({

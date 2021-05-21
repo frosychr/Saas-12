@@ -3,7 +3,7 @@ const router = express.Router();
 
 const questperday = require('../controllers/perday');
 
-// /questions per keyword => GET
+// /questions per day => GET
 router.get('/perday',questperday.getperday );
 
 module.exports = router;

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const mycontrib = require('../controllers/mycontrib');
 
-// /questions per keyword => GET
+// my contributions => GET
 router.get('/mycontrib',mycontrib.getmycontrib );
 
 module.exports = router;

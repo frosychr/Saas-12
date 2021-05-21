@@ -59,8 +59,6 @@ exports.getperday = async (req, res) => {
                     path: '/myanswers',
                     isAuthenticated: req.session.isLoggedIn
                 });
-
-
     }
     else{
         res.render('landing',

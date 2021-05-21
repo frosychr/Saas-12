@@ -60,23 +60,7 @@ exports.allquests = async (req, res, next)=> {
             path: '/allquestions',
             isAuthenticated: req.session.isLoggedIn
         });
-
-/*     Question.find().sort({'date': 'desc'})
-         Answer.find()
-
-     .then(questions => {
-
-        res.render('allquestions',{
-            quest: questions,
-            pageTitle:'AllQuestions',
-            path: '/allquestions',
-            isAuthenticated: req.session.isLoggedIn
-     });
-    })
-         .catch(err => {
-             console.log(err);
-         })*/
-}
+    }
     else{
         Question.find().limit(10)
             .then(questions => {
@@ -91,6 +75,5 @@ exports.allquests = async (req, res, next)=> {
             .catch(err => {
                 console.log(err);
             })
-
     }
 }

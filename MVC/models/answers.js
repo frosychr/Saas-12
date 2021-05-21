@@ -24,8 +24,6 @@ const answerSchema = new Schema({
                 type: Date,
                 default: Date.now
             }
-
-
 });
 
 module.exports = mongoose.model('Answer', answerSchema);
