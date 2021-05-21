@@ -1,0 +1,85 @@
+<%- include('includes/head.ejs') %>
+<link rel="stylesheet" href="/css/allquestions.css">
+<link rel="stylesheet" href="/css/top-navbar.css">
+<link rel="stylesheet" href="/css/table.css">
+</head>
+
+<body>
+<%- include('includes/navigation.ejs') %>
+
+<main>
+    <h1 class = "landing_title"> <%= pageTitle%> </h1>
+    <div>
+        <% if (quest.length > 0) { %>
+        <table class="table-fill">
+            <thead>
+            <tr>
+                <th class="text-left">Year</th>
+                <th class="text-left">Day of Year</th>
+                <th class="text-left">Number of Questions</th>
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+        <% for(let quest_ans of quest) { %>
+            <tr>
+            <td class="text-left"><%=quest_ans._id.year %>  </td>
+            <td class="text-left"> <%=quest_ans._id.dayOfYear %> </td>
+                <td class="text-left"> <%=quest_ans.dailyCount %>  </td>
+            </tr>
+
+        <% }%>
+        <% }
+        else{ %>
+            <h2> No questions yet!</h2>
+        <% }%>
+        </table>
+    </div>
+
+    <div>
+        <% if (answers.length > 0) { %>
+        <table class="table-fill">
+            <thead>
+            <tr>
+                <th class="text-left">Year</th>
+                <th class="text-left">Day of Year</th>
+                <th class="text-left">Number of Answers</th>
+            </tr>
+            </thead>
+            <tbody class="table-hover">
+            <% for(let quest_ans of answers) { %>
+            <tr>
+                <td class="text-left"><%=quest_ans._id.year %>  </td>
+                <td class="text-left"> <%=quest_ans._id.dayOfYear %> </td>
+                <td class="text-left"> <%=quest_ans.dailyCount %>  </td>
+            </tr>
+
+            <% }%>
+            <% }
+            else{ %>
+                <h2> No answers yet!</h2>
+            <% }%>
+        </table>
+    </div>
+
+    <div className='chart' >
+        <Bar data={{
+             labels: points,
+             datasets: [
+             {
+                 label: 'Energy Per Point Bar Diagram',
+            data : pointsEnergy,
+            backgroundColor:  colors ,
+            borderColor : 'blue',
+            borderWidth :  1           ,
+            hoverBackgroundColor: randomColorGenerator()
+
+        }
+        ],
+
+        }}
+        options={{}}
+        />
+    </div>
+</main>
+
+<%- include('includes/end.ejs') %>
