@@ -1,0 +1,24 @@
+<header class="main-header">
+
+    <div class="topnav">
+        <a  href="/">AskMeAnything</a>
+        <a href="/allquestions">All Questions</a>
+        <a href="/myask">MyAskMeAnything</a>
+        <% if (!isAuthenticated) { %>
+
+        <div class="topnav-right">
+            <a  href="/login">Login</a>
+            <a  href="/signup">Signup</a>
+        </div>
+        <% } else { %>
+        <div class="topnav-right">
+            <form action="/logout" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+                <button class="button button1" type="submit">Logout</button>
+            </form>
+
+        </div>
+        <% } %>
+    </div>
+
+</header>
