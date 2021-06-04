@@ -6,7 +6,6 @@ exports.getnewans = (req, res, next) => {
     if(checkauth){
     Question.find()
         .then(questions => {
-            var x = questions.answers;
             res.render('newanswer',{
                 quest: questions,
                 pageTitle:'Answer a Question',
@@ -24,9 +23,6 @@ exports.getnewans = (req, res, next) => {
                 pageTitle: 'Landing Page',
                 path: '/',
                 isAuthenticated: req.session.isLoggedIn
-                // formsCSS: true,
-                //questionCSS: true,
-                //activeAskAQuestion: true
             });
         }
 }
@@ -39,7 +35,7 @@ exports.getnewans = (req, res, next) => {
 
             const answer = req.body.answer;
             const question = await Question.findById(result);
-
+            console.log(selected_title);
             const newanswer = new Answer({
                 name: req.session.user.username,
                 user: req.session.user._id,

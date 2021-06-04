@@ -3,16 +3,15 @@ const Question = require('../models/question');
 const Answer = require('../models/answers');
 
 exports.getperday = async (req, res) => {
-    const checkauth = req.session.isLoggedIn;
-    if (checkauth) {
         const quest_ans = await Promise.all([
         Question.aggregate([
             {
                 "$group": {
                     "_id": {
                         "year": {"$year": "$date"},
-                        "dayOfYear": {"$dayOfYear": "$date"},
-                        "hour": {"$hour": "$date"}
+                        "hour": {"$hour": "$date"},
+                        "month": {"$month": "$date"},
+                        "day": { "$dayOfMonth": "$date"}
                     },
                     "count": {"$sum": 1}
                 }
@@ -21,7 +20,8 @@ exports.getperday = async (req, res) => {
                 "$group": {
                     "_id": {
                         "year": "$_id.year",
-                        "dayOfYear": "$_id.dayOfYear"
+                        "month": "$_id.month",
+                        "day": "$_id.day"
                     },
                     "dailyCount": {"$sum": "$count"},
                     "hourlyData": {"$push": {"hour": "$_id.hour", "count": "$count"}}
@@ -33,8 +33,9 @@ exports.getperday = async (req, res) => {
                     "$group": {
                         "_id": {
                             "year": {"$year": "$date"},
-                            "dayOfYear": {"$dayOfYear": "$date"},
-                            "hour": {"$hour": "$date"}
+                            "hour": {"$hour": "$date"},
+                            "month": {"$month": "$date"},
+                            "day": { "$dayOfMonth": "$date" }
                         },
                         "count": {"$sum": 1}
                     }
@@ -43,7 +44,8 @@ exports.getperday = async (req, res) => {
                     "$group": {
                         "_id": {
                             "year": "$_id.year",
-                            "dayOfYear": "$_id.dayOfYear"
+                            "month": "$_id.month",
+                            "day": "$_id.day"
                         },
                         "dailyCount": {"$sum": "$count"},
                         "hourlyData": {"$push": {"hour": "$_id.hour", "count": "$count"}}
@@ -52,6 +54,7 @@ exports.getperday = async (req, res) => {
             ])
 
         ])
+
         res.render('perday', {
                     quest: quest_ans[0],
                     answers:quest_ans[1],
@@ -59,13 +62,5 @@ exports.getperday = async (req, res) => {
                     path: '/myanswers',
                     isAuthenticated: req.session.isLoggedIn
                 });
-    }
-    else{
-        res.render('landing',
-            {
-                pageTitle: 'Landing Page',
-                path: '/',
-                isAuthenticated: req.session.isLoggedIn
-            });
-    }
+
 };

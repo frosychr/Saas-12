@@ -15,7 +15,8 @@
             <thead>
             <tr>
                 <th class="text-left">Year</th>
-                <th class="text-left">Day of Year</th>
+                <th class="text-left">Month</th>
+                <th class="text-left">Day</th>
                 <th class="text-left">Number of Questions</th>
             </tr>
             </thead>
@@ -23,7 +24,8 @@
             <% for(let quest_ans of quest) { %>
             <tr>
                 <td class="text-left"><%=quest_ans._id.year %>  </td>
-                <td class="text-left"> <%=quest_ans._id.dayOfYear %> </td>
+                <td class="text-left"> <%=quest_ans._id.month %> </td>
+                <td class="text-left"> <%=quest_ans._id.day %> </td>
                 <td class="text-left"> <%=quest_ans.dailyCount %>  </td>
             </tr>
 
@@ -40,7 +42,8 @@
             <thead>
             <tr>
                 <th class="text-left">Year</th>
-                <th class="text-left">Day of Year</th>
+                <th class="text-left">Month</th>
+                <th class="text-left">Day</th>
                 <th class="text-left">Number of Answers</th>
             </tr>
             </thead>
@@ -48,7 +51,8 @@
             <% for(let quest_ans of answers) { %>
             <tr>
                 <td class="text-left"><%=quest_ans._id.year %>  </td>
-                <td class="text-left"> <%=quest_ans._id.dayOfYear %> </td>
+                <td class="text-left"> <%=quest_ans._id.month %> </td>
+                <td class="text-left"> <%=quest_ans._id.day %> </td>
                 <td class="text-left"> <%=quest_ans.dailyCount %>  </td>
             </tr>
 

@@ -15,15 +15,18 @@
             <thead>
             <tr>
                 <th class="text-left">Year</th>
-                <th class="text-left">Day of Year</th>
+                <th class="text-left">Month</th>
+                <th class="text-left">Day</th>
                 <th class="text-left">Number of Questions</th>
             </tr>
             </thead>
             <tbody class="table-hover">
         <% for(let quest_ans of quest) { %>
+
             <tr>
-            <td class="text-left"><%=quest_ans._id.year %>  </td>
-            <td class="text-left"> <%=quest_ans._id.dayOfYear %> </td>
+                <td class="text-left"><%=quest_ans._id.year %>  </td>
+                <td class="text-left"> <%=quest_ans._id.month %> </td>
+                <td class="text-left"> <%=quest_ans._id.day %> </td>
                 <td class="text-left"> <%=quest_ans.dailyCount %>  </td>
             </tr>
 
@@ -41,7 +44,8 @@
             <thead>
             <tr>
                 <th class="text-left">Year</th>
-                <th class="text-left">Day of Year</th>
+                <th class="text-left">Month</th>
+                <th class="text-left">Day</th>
                 <th class="text-left">Number of Answers</th>
             </tr>
             </thead>
@@ -49,7 +53,8 @@
             <% for(let quest_ans of answers) { %>
             <tr>
                 <td class="text-left"><%=quest_ans._id.year %>  </td>
-                <td class="text-left"> <%=quest_ans._id.dayOfYear %> </td>
+                <td class="text-left"> <%=quest_ans._id.month %> </td>
+                <td class="text-left"> <%=quest_ans._id.day %> </td>
                 <td class="text-left"> <%=quest_ans.dailyCount %>  </td>
             </tr>
 
@@ -60,26 +65,117 @@
             <% }%>
         </table>
     </div>
+    <br>
+    <br>
 
-    <div className='chart' >
-        <Bar data={{
-             labels: points,
-             datasets: [
-             {
-                 label: 'Energy Per Point Bar Diagram',
-            data : pointsEnergy,
-            backgroundColor:  colors ,
-            borderColor : 'blue',
-            borderWidth :  1           ,
-            hoverBackgroundColor: randomColorGenerator()
+    <% let xvalues = [] %>
+    <% for(let quest_ans of quest) { %>
+        <%  var year = JSON.stringify(quest_ans._id.year)
+            var month = JSON.stringify(quest_ans._id.month)
+            var day = JSON.stringify(quest_ans._id.day)
+            var totn_string = []
+            totn_string.push(year + '/' + month + '/' + day)
+        %>
+       <% xvalues.push(totn_string);
+        %>
+    <% }%>
 
-        }
-        ],
+    <% let sum = [0];
+    %>
+    <% for(let quest_ans of quest) { %>
+        <% sum.push(quest_ans.dailyCount);
+        %>
+    <% }%>
 
-        }}
-        options={{}}
-        />
-    </div>
+    <% let barColors = [] %>
+    <% for(let quest_ans of quest) { %>
+        <% barColors.push("blue");
+        %>
+    <% }%>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <canvas id="myChart" style="width:100%;max-width:600px; margin: 0px auto;"></canvas>
+
+    <script>
+
+
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: <%- JSON.stringify(xvalues)%>,
+
+                datasets: [{
+                    backgroundColor: <%- JSON.stringify(barColors)%>,
+                    data:  <%- JSON.stringify(sum)%>
+                }]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                    text: "Questions Per Day"
+                }
+            }
+        });
+    </script>
+
+<br>
+    <br>
+
+    <% let xvaluesans = [] %>
+    <% for(let quest_ans of answers) { %>
+        <%  var yeara = JSON.stringify(quest_ans._id.year)
+            var montha = JSON.stringify(quest_ans._id.month)
+            var daya = JSON.stringify(quest_ans._id.day)
+            var totn_stringa = []
+            totn_stringa.push(yeara + '/' + montha + '/' + daya)
+        %>
+        <% xvaluesans.push(totn_stringa);
+        %>
+    <% }%>
+
+    <% let suma = [0];
+    %>
+    <% for(let quest_ans of answers) { %>
+        <% suma.push(quest_ans.dailyCount);
+        %>
+    <% }%>
+
+    <% let barColorsa = [] %>
+    <% for(let quest_ans of answers) { %>
+        <% barColorsa.push("red");
+        %>
+    <% }%>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <canvas id="new" style="width:100%;max-width:600px; margin: 0px auto;"></canvas>
+
+    <script>
+
+
+        new Chart("new", {
+            type: "bar",
+            data: {
+                labels: <%- JSON.stringify(xvaluesans)%>,
+
+                datasets: [{
+                    backgroundColor: <%- JSON.stringify(barColorsa)%>,
+                    data:  <%- JSON.stringify(suma)%>
+                }]
+            },
+            options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                    text: "Answers Per Day"
+                }
+            }
+        });
+    </script>
+
+    <br>
 </main>
 
 <%- include('includes/end.ejs') %>

@@ -20,7 +20,6 @@ exports.contact = (req, res, next) => {
 
 exports.contactpost = async (req,res,next) => {
     try {
-
         const output = ` <p>You have a new contact request</p>
         <h3>Contact Details </h3>
         <ul>
@@ -49,8 +48,6 @@ exports.contactpost = async (req,res,next) => {
             text: "Message:",
             html: output
         });
-
-        console.log("Message sent: %s", info.messageId);
         res.redirect('/');
     } catch (error) {
         console.error(error.message);
@@ -58,7 +55,6 @@ exports.contactpost = async (req,res,next) => {
     }
 
 }
-
 exports.github = (req, res, next) => {
     res.render('technical/github',
         {

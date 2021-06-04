@@ -62,7 +62,7 @@ exports.allquests = async (req, res, next)=> {
         });
     }
     else{
-        Question.find().limit(10)
+        Question.find().limit(10).sort({'date': 'desc'})
             .then(questions => {
                 res.render('allquestions',{
                     islogged: false,

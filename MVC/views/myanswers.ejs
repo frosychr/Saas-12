@@ -1,5 +1,6 @@
 <%- include('includes/head.ejs') %>
 <link rel="stylesheet" href="/css/allquestions.css">
+<link rel="stylesheet" href="/css/forms.css">
 <link rel="stylesheet" href="/css/top-navbar.css">
 </head>
 
@@ -7,14 +8,13 @@
 <%- include('includes/navigation.ejs') %>
 
 <main>
-    <h1 class = "landing_title"> My Answers</h1>
+    <h2 class = "header44"> Your Answers</h2>
     <div>
         <% if (quest.length > 0) { %>
-        <p class="center1"> <b>Total Answers: </b><%=quest.length %>  </p>
+        <h3 class="center1"> <b>Total Answers: </b><%=quest.length %>  </h3>
         <% for(let question of quest) { %>
         <div class = "container">
-            <p> <b>Answer: </b><%=question.text %>  </p>
-
+            <p class="groove"> <b>Answer: </b><%=question.text %>  </p>
         </div>
         <% }%>
         <% }

@@ -1,10 +1,6 @@
 const Question = require('../models/question');
-
-
 exports.getperkeyword = (req, res) => {
-    const checkauth = req.session.isLoggedIn;
-    if (checkauth) {
-        Question.find({}).select('keywords -_id')
+     Question.find({}).select('keywords -_id')
             .then(questions => {
                 var results = new Array();
                 for (var i = 0; i < questions.length; i++) {
@@ -15,21 +11,22 @@ exports.getperkeyword = (req, res) => {
                         results.push(result3[j])
                     }
                 }
-                var total_counts = new Array;
-                for (var k = 0; k < results.length; k++) {
-                    var res1 = 0;
-                    for (var l = 0; l < results.length; l++) {
-                        if (results[k] === results[l]) {
-                            res1++;
-                        }
-                    }
-                    total_counts.push(res1);
+
+                function getOccurrence(array, value) {
+                    return array.filter((v) => (v === value)).length;
+                }
+                var total_counts1 = new Array;
+
+                let unique = [...new Set(results)];
+                for (var k = 0; k < unique.length; k++) {
+                    total_counts1[k] = getOccurrence(results, unique[k])
+                    console.log(unique[k]);
+                    console.log(total_counts1[k]);
 
                 }
-
                 res.render('perkeyword', {
-                    quest: results,
-                    counts: total_counts,
+                    quest: unique,
+                    counts: total_counts1,
                     pageTitle: 'Number of Questions per Keyword',
                     path: '/perkeyword',
                     isAuthenticated: req.session.isLoggedIn
@@ -38,12 +35,5 @@ exports.getperkeyword = (req, res) => {
             .catch(err => {
                 console.log(err);
             })
-    } else{
-        res.render('landing',
-            {
-                pageTitle: 'Landing Page',
-                path: '/',
-                isAuthenticated: req.session.isLoggedIn
-            });
-    }
+
 };

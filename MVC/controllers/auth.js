@@ -36,11 +36,14 @@ exports.postLogin = (req, res, next) => {
               if (doMatch) {
                   req.session.isLoggedIn = true;
                   req.session.user = user;
+                  islogged = true;
                 return req.session.save(err => {
                   console.log(err);
+                    islogged = true
                   res.redirect('/');
                 });
               }
+
               res.redirect('/login');
             })
             .catch(err => {
@@ -69,11 +72,10 @@ exports.postSignup = (req, res, next) => {
           return res.redirect('/signup');
 
       }
-    if(password != confirmPassword){
+   if(password !== confirmPassword){
         req.flash('error','Passwords do not match, please try again.');
         return res.redirect('/signup');
     }
-
     return bcrypt.hash(password,12 ).then(hashedPassword => {
       const user = new User({
           username: username,

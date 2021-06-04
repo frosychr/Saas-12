@@ -15,16 +15,18 @@ exports.getmycontrib = async (req, res) => {
                 "$group":{
 
                     "_id":{
-                        "year":{"$year":"$date"},
-                        "dayOfYear":{"$dayOfYear":"$date"},
-                        "hour":{"$hour":"$date"}
+                        "year": {"$year": "$date"},
+                        "hour": {"$hour": "$date"},
+                        "month": {"$month": "$date"},
+                        "day": { "$dayOfMonth": "$date"}
                     },
                     "count":{"$sum":1}
                 }},
             {"$group":{
                     "_id":{
-                        "year":"$_id.year",
-                        "dayOfYear":"$_id.dayOfYear"
+                        "year": "$_id.year",
+                        "month": "$_id.month",
+                        "day": "$_id.day"
                     },
                     "dailyCount":{"$sum":"$count"},
                     "hourlyData":{"$push":{"hour":"$_id.hour","count":"$count"}}
@@ -38,16 +40,18 @@ exports.getmycontrib = async (req, res) => {
             },
             {"$group":{
                     "_id":{
-                        "year":{"$year":"$date"},
-                        "dayOfYear":{"$dayOfYear":"$date"},
-                        "hour":{"$hour":"$date"}
+                        "year": {"$year": "$date"},
+                        "hour": {"$hour": "$date"},
+                        "month": {"$month": "$date"},
+                        "day": { "$dayOfMonth": "$date"}
                     },
                     "count":{"$sum":1}
                 }},
             {"$group":{
                     "_id":{
-                        "year":"$_id.year",
-                        "dayOfYear":"$_id.dayOfYear"
+                        "year": "$_id.year",
+                        "month": "$_id.month",
+                        "day": "$_id.day"
                     },
                     "dailyCount":{"$sum":"$count"},
                     "hourlyData":{"$push":{"hour":"$_id.hour","count":"$count"}}

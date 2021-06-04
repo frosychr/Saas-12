@@ -58,19 +58,32 @@
 .center1{
     text-align: center;
 }
+
+h2 {
+    text-align: center;
+}
 h.header4{
     background: #042844;
     color: #fff;
-
     line-height: 73px;
     padding: 5px 5px;
     font-size: 24px;
     text-transform: uppercase;
     white-space:pre-wrap;
     border-radius: 5px; /* Rounded borders */
-    text-align: center;
-
 }
+.header44{
+    text-align: center;
+    background: #b3e0ff;
+    color: black;
+    line-height: 53px;
+    padding: 5px 5px;
+    font-size: 24px;
+    text-transform: uppercase;
+    white-space:pre-wrap;
+    border-radius: 5px; /* Rounded borders */
+}
+
 
 
 
