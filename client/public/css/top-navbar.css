@@ -1,0 +1,68 @@
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+
+    color: yellow;
+}
+
+.topnav a.active {
+
+    color: black;
+}
+
+.topnav-right {
+    float: right;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    text-align: center;
+    width: 33.33%;
+    padding: 15px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    text-align: center;
+    content: "";
+    clear: both;
+    display: table;
+    padding-bottom: 90px;
+}
+
+/* Header/Logo Title */
+.header {
+    padding: 210px;
+    text-align: center;
+    background: url('https://media.istockphoto.com/illustrations/question-answer-bubble-icon-special-blue-banner-background-illustration-id1017160930?k=6&m=1017160930&s=612x612&w=0&h=EEAllFzyvaPBqqF60kpm43fecC1JRo6bPhfEvX_WHKM=') repeat-x;
+    color: white;
+    font-size: 25px;
+    background-size: cover;
+    width: -moz-fit-content;
+
+}
+.content {
+    position: center;
+    width: 100%;
+    text-align: center;
+
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
