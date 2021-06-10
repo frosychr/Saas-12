@@ -96,7 +96,8 @@ mongoose
     .connect(MONGODB_URI)
     .then(result => {
         console.log('Mongodb Connected');
-        app.listen(4006);
+        console.log('Listening at port 4008');
+        app.listen(4008);
     })
 
 .catch(err => {

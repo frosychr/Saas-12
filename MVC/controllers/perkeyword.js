@@ -20,9 +20,6 @@ exports.getperkeyword = (req, res) => {
                 let unique = [...new Set(results)];
                 for (var k = 0; k < unique.length; k++) {
                     total_counts1[k] = getOccurrence(results, unique[k])
-                    console.log(unique[k]);
-                    console.log(total_counts1[k]);
-
                 }
                 res.render('perkeyword', {
                     quest: unique,
