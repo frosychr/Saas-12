@@ -4,8 +4,41 @@ const Answer = require('../../models/Answers');
 const cors = require('cors');
 const axios = require('axios');
 
-router.get('/',(req, res) => {
+router.post('/crashed_userans',async (req,res) => {
+    try{
+        const test = req.body.data;
+        console.log(test.length)
+
+        for(i=0; i< test.length; i++){
+            let newanswer = new Answer(test[i]);
+            await newanswer.save()
+        }
+        console.log("Retrieved lost answers")
+    }catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
+})
+
+router.get('/',async (req, res) => {
     const user = req.body.user;
+
+    const data_by_now_ans = await Answer.find({});
+    const userans_length_ans = data_by_now_ans.length;
+    config = {
+        method: 'post',
+        url: "http://localhost:4005/events/check_userans",
+        // headers :  { "x-auth-token": req.header("x-auth-token") },
+        data : { type: "USERANS" , check_data:userans_length_ans}
+    }
+    axios(config)
+        .then( (result) => {})
+        .catch(err =>{
+            console.error(err)
+            return res.status(500);
+        })
+
+
     Answer.find({userId: user})
         .then(answers => {
         res.json(answers)

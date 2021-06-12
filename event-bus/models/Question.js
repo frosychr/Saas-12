@@ -35,7 +35,33 @@ const QuestionSchema = new Schema({
     date:{
         type: Date,
         default: Date.now
-    }
+    }/*,
+    answers_id:{
+        type: String,
+        required: false
+    },
+    questions_id:{
+        type: String,
+        required: false
+    },
+    statistics_perday_id:{
+        type: String,
+        required: false
+    },
+    stats_perkeyword_id:{
+        type: String,
+        required: false
+    },
+    user_statistics_id:{
+        type: String,
+        required: false
+    },
+    read_counter:{
+        type: String,
+        required: false
+    }*/
+
+
 
 })
 module.exports = Question = mongoose.model('question',QuestionSchema);

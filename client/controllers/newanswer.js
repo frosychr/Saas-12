@@ -19,7 +19,7 @@ exports.getnewans = (req, res, next) => {
                     isAuthenticated: req.session.isLoggedIn
                 });
             })
-        /*    .catch(err =>{
+           /* .catch(err =>{
                 console.log(err)
                 return res.redirect('/')
             })*/ )
