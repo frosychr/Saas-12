@@ -27,7 +27,7 @@ const Questions = new Schema({
             text:
                 {
                     type:  String,
-                    required: true
+                    required: false
                 }
         }
     ],

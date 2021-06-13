@@ -7,7 +7,7 @@ const axios = require('axios');
 router.post('/crashed_que',async (req,res) => {
     try{
         const test = req.body.data;
-        console.log(test.length)
+        //console.log(test.length)
 
         for(i=0; i< test.length; i++){
             let newquestion = new Question(test[i]);
@@ -22,14 +22,14 @@ router.post('/crashed_que',async (req,res) => {
 
 router.get('/',async (req, res) => {
         const user = req.body.user;
-
-        const data_by_now = await Question.find({});
-    const userque_length = data_by_now.length;
+        //console.log(user);
+        const data_by_now = await Question.find({userId: user});
+        const userque_length = data_by_now.length;
     config = {
         method: 'post',
         url: "http://localhost:4005/events/check_que",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
-        data : { type: "USERQUEST" , check_data:userque_length}
+        data : { type: "USERQUEST" , check_data:userque_length, user:user}
     }
     axios(config)
         .then( (result) => {})
@@ -37,8 +37,6 @@ router.get('/',async (req, res) => {
             console.error(err)
             return res.status(500);
         })
-
-        console.log(user);
         Question.find({userId:user})
         .then(questions => {
             res.json(questions);

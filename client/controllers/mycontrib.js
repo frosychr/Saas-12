@@ -2,7 +2,7 @@ const axios = require('axios')
 
 exports.getmycontrib =  (req, res) => {
     const user = req.session.user
-    console.log(user);
+    //console.log(user);
     const config = {
         method:"get",
         url:"http://localhost:4006/api/mycontrib",

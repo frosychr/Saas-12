@@ -38,23 +38,23 @@ router.post('/mycon_crashed_ans',async (req,res) => {
 })
 
 router.get('/',async (req, res) => {
-    const userid = req.body.user;
-    const data_by_now = await Question.find({});
+    const user = req.body.user;
+    const data_by_now = await Question.find({userId: user});
     const mycontrib_length = data_by_now.length;
     config = {
         method: 'post',
         url: "http://localhost:4005/events/mycon_check",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
-        data : { type: "MYCONTRIB" , check_data:mycontrib_length}
+        data : { type: "MYCONTRIB" , check_data:mycontrib_length,user:user}
     }
     axios(config)
-        .then( (result) => {})
+        .then( (result)=>{})
         .catch(err =>{
             console.error(err)
             return res.status(500);
         })
     
-    const data_by_now_ans = await Answer.find({});
+    const data_by_now_ans = await Answer.find({userId: user});
     const mycontrib_length_ans = data_by_now_ans.length;
     config = {
         method: 'post',
@@ -63,7 +63,7 @@ router.get('/',async (req, res) => {
         data : { type: "MYCONTRIB" , check_data:mycontrib_length_ans}
     }
     axios(config)
-        .then( (result) => {})
+        .then( (result) =>{})
         .catch(err =>{
             console.error(err)
             return res.status(500);
@@ -74,7 +74,7 @@ router.get('/',async (req, res) => {
         Question.aggregate([
             {
                 $match: {
-                    userId: userid
+                    userId: user
                 }
             },
             {
@@ -101,7 +101,7 @@ router.get('/',async (req, res) => {
         Answer.aggregate([
             {
                 $match: {
-                    userId: userid // replace this hard-coded objectId with mongoose.Types.ObjectId(req.query.payment_order_id)
+                    userId: user // replace this hard-coded objectId with mongoose.Types.ObjectId(req.query.payment_order_id)
                 }
             },
             {"$group":{

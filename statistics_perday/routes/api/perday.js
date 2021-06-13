@@ -14,7 +14,6 @@ const axios = require('axios');
 router.post('/crashed',async (req,res) => {
     try{
         const test = req.body.data;
-        console.log(test.length)
 
         for(i=0; i< test.length; i++){
             let newquestion = new Quest(test[i]);

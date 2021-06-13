@@ -22,14 +22,13 @@ router.post('/crashed_userans',async (req,res) => {
 
 router.get('/',async (req, res) => {
     const user = req.body.user;
-
-    const data_by_now_ans = await Answer.find({});
+    const data_by_now_ans = await Answer.find({userId: user});
     const userans_length_ans = data_by_now_ans.length;
     config = {
         method: 'post',
         url: "http://localhost:4005/events/check_userans",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
-        data : { type: "USERANS" , check_data:userans_length_ans}
+        data : { type: "USERANS" , check_data:userans_length_ans, user:user}
     }
     axios(config)
         .then( (result) => {})

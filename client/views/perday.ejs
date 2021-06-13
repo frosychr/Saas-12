@@ -68,7 +68,7 @@
     <br>
     <br>
 
-    <% let xvalues = [] %>
+    <% let xvalues = [0] %>
     <% for(let quest_ans of quest) { %>
         <%  var year = JSON.stringify(quest_ans._id.year)
             var month = JSON.stringify(quest_ans._id.month)
@@ -87,7 +87,7 @@
         %>
     <% }%>
 
-    <% let barColors = [] %>
+    <% let barColors = ['blue'] %>
     <% for(let quest_ans of quest) { %>
         <% barColors.push("blue");
         %>
@@ -123,7 +123,7 @@
 <br>
     <br>
 
-    <% let xvaluesans = [] %>
+    <% let xvaluesans = [0] %>
     <% for(let quest_ans of answers) { %>
         <%  var yeara = JSON.stringify(quest_ans._id.year)
             var montha = JSON.stringify(quest_ans._id.month)
@@ -142,7 +142,7 @@
         %>
     <% }%>
 
-    <% let barColorsa = [] %>
+    <% let barColorsa = ['red'] %>
     <% for(let quest_ans of answers) { %>
         <% barColorsa.push("red");
         %>

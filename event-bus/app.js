@@ -15,19 +15,15 @@ connectDB();
 
 app.post('/events/check',async (req,res) => {
     try{  const check_event = req.body
-        console.log(check_event);
         const data_by_now = await Question.find({});
         const length_by_now = data_by_now.length;
-        console.log("event_bus length = ",length_by_now)
         if(check_event.type === "PERDAY" ){
             const perday_length = check_event.check_data;
             diafora = length_by_now - perday_length;
-            console.log("diafora = ",diafora)
-
             if(diafora > 0){
 
                 const not_passed = await  Question.find({}).sort('-date').limit(diafora);
-                console.log(not_passed)
+
                     config = {
                         method: 'post',
                         url: "http://localhost:4003/api/perday/crashed",
@@ -36,7 +32,7 @@ app.post('/events/check',async (req,res) => {
                     }
                     axios(config)
                         .then(result => {
-                            console.log("to esteila")
+                            //console.log("to esteila")
                             return res.status(201)
                         })
                         .catch(err =>{
@@ -55,19 +51,19 @@ app.post('/events/check',async (req,res) => {
 
 app.post('/events/check_ans',async (req,res) => {
     try{  const check_event_ans = req.body
-        console.log(check_event_ans);
+        //console.log(check_event_ans);
         const data_by_now_ans = await Answer.find({});
         const length_by_now_ans = data_by_now_ans.length;
-        console.log("event_bus length = ",length_by_now_ans)
+        //console.log("event_bus length = ",length_by_now_ans)
         if(check_event_ans.type === "PERDAY" ){
             const perday_length_ans = check_event_ans.check_data;
             diafora_ans = length_by_now_ans - perday_length_ans;
-            console.log("diafora = ",diafora_ans)
+            //console.log("diafora = ",diafora_ans)
 
             if(diafora_ans > 0){
 
                 const not_passed_ans = await  Answer.find({}).sort('-date').limit(diafora_ans);
-                console.log(not_passed_ans)
+                //console.log(not_passed_ans)
                     config = {
                         method: 'post',
                         url: "http://localhost:4003/api/perday/crashed_ans",
@@ -76,7 +72,7 @@ app.post('/events/check_ans',async (req,res) => {
                     }
                     axios(config)
                         .then(result => {
-                            console.log("to esteila")
+                           // console.log("to esteila")
                             return res.status(201)
                         })
                         .catch(err =>{
@@ -94,19 +90,19 @@ app.post('/events/check_ans',async (req,res) => {
 
 app.post('/events/check_keyword',async (req,res) => {
     try{  const check_event_keyword = req.body
-        console.log(check_event_keyword);
+        //console.log(check_event_keyword);
         const data_by_now_keyword = await Question.find({});
         const length_by_now_keyword = data_by_now_keyword.length;
-        console.log("event_bus length = ",length_by_now_keyword)
+        //console.log("event_bus length = ",length_by_now_keyword)
         if(check_event_keyword.type === "PERKEYWORD" ){
             const perkeyword_length = check_event_keyword.check_data;
             diafora_keyword = length_by_now_keyword - perkeyword_length;
-            console.log("diafora = ",diafora_keyword)
+           // console.log("diafora = ",diafora_keyword)
 
             if(diafora_keyword > 0){
 
                 const not_passed_keyword = await  Question.find({}).sort('-date').limit(diafora_keyword);
-                console.log(not_passed_keyword)
+                //console.log(not_passed_keyword)
                     config = {
                         method: 'post',
                         url: "http://localhost:4004/api/perkeyword/crashed_perkey",
@@ -115,7 +111,7 @@ app.post('/events/check_keyword',async (req,res) => {
                     }
                     axios(config)
                         .then(result => {
-                            console.log("to esteila")
+                            //console.log("to esteila")
                             return res.status(201)
                         })
                         .catch(err =>{
@@ -133,19 +129,19 @@ app.post('/events/check_keyword',async (req,res) => {
 
 app.post('/events/mycon_check',async (req,res) => {
     try{  const mcheck_event = req.body
-        console.log(mcheck_event);
-        const mdata_by_now = await Question.find({});
+        //console.log(mcheck_event);
+        const mdata_by_now = await Question.find({userId:mcheck_event.user});
         const mlength_by_now = mdata_by_now.length;
-        console.log("event_bus length = ",mlength_by_now)
+       // console.log("event_bus length = ",mlength_by_now)
         if(mcheck_event.type === "MYCONTRIB" ){
             const mycontrib_length = mcheck_event.check_data;
             mdiafora = mlength_by_now - mycontrib_length;
-            console.log("diafora = ",mdiafora)
+            //console.log("diafora = ",mdiafora)
 
             if(mdiafora > 0){
 
-                const mnot_passed = await  Question.find({}).sort('-date').limit(mdiafora);
-                console.log(mnot_passed)
+                const mnot_passed = await  Question.find({userId:mcheck_event.user}).sort('-date').limit(mdiafora);
+               // console.log(mnot_passed)
                     config = {
                         method: 'post',
                         url: "http://localhost:4006/api/mycontrib/mycon_crashed",
@@ -154,7 +150,7 @@ app.post('/events/mycon_check',async (req,res) => {
                     }
                     axios(config)
                         .then(result => {
-                            console.log("to esteila")
+                           // console.log("to esteila")
                             return res.status(201)
                         })
                         .catch(err =>{
@@ -173,19 +169,19 @@ app.post('/events/mycon_check',async (req,res) => {
 
 app.post('/events/mycon_check_ans',async (req,res) => {
     try{  const mcheck_event_ans = req.body
-        console.log(mcheck_event_ans);
-        const mdata_by_now_ans = await Answer.find({});
+        //console.log(mcheck_event_ans);
+        const mdata_by_now_ans = await Answer.find({userId:mcheck_event_ans.user});
         const mlength_by_now_ans = mdata_by_now_ans.length;
-        console.log("event_bus length = ",mlength_by_now_ans)
+       // console.log("event_bus length = ",mlength_by_now_ans)
         if(mcheck_event_ans.type === "MYCONTRIB" ){
             const mycontrib_length_ans = mcheck_event_ans.check_data;
             mdiafora_ans = mlength_by_now_ans - mycontrib_length_ans;
-            console.log("diafora = ",mdiafora_ans)
+            //console.log("diafora = ",mdiafora_ans)
 
             if(mdiafora_ans > 0){
 
-                const mnot_passed_ans = await  Answer.find({}).sort('-date').limit(mdiafora_ans);
-                console.log(mnot_passed_ans)
+                const mnot_passed_ans = await  Answer.find({userId:mcheck_event_ans.user}).sort('-date').limit(mdiafora_ans);
+             //   console.log(mnot_passed_ans)
                     config = {
                         method: 'post',
                         url: "http://localhost:4006/api/mycontrib/mycon_crashed_ans",
@@ -194,7 +190,7 @@ app.post('/events/mycon_check_ans',async (req,res) => {
                     }
                     axios(config)
                         .then(result => {
-                            console.log("to esteila")
+                            //console.log("to esteila")
                             return res.status(201)
                         })
                         .catch(err =>{
@@ -212,19 +208,18 @@ app.post('/events/mycon_check_ans',async (req,res) => {
 
 app.post('/events/check_que',async (req,res) => {
     try{  const check_event_que = req.body
-        console.log(check_event_que);
-        const data_by_now_que = await Question.find({});
+        //console.log(check_event_que);
+        const data_by_now_que = await Question.find({userId: check_event_que.user});
         const length_by_now_que = data_by_now_que.length;
-        console.log("event_bus length = ",length_by_now_que)
+       // console.log("event_bus length = ",length_by_now_que)
         if(check_event_que.type === "USERQUEST" ){
             const userquest_length = check_event_que.check_data;
             diafora_que = length_by_now_que - userquest_length;
-            console.log("diafora = ",diafora_que)
-
+            //console.log("diafora = ",diafora_que)
             if(diafora_que > 0){
 
-                const not_passed_que = await  Question.find({}).sort('-date').limit(diafora_que);
-                console.log(not_passed_que)
+                const not_passed_que = await  Question.find({userId: check_event_que.user}).sort('-date').limit(diafora_que);
+               // console.log(not_passed_que)
                     config = {
                         method: 'post',
                         url: "http://localhost:4006/api/questions/crashed_que",
@@ -233,11 +228,11 @@ app.post('/events/check_que',async (req,res) => {
                     }
                     axios(config)
                         .then(result => {
-                            console.log("to esteila")
+                          //  console.log("to esteila")
                             return res.status(201)
                         })
                         .catch(err =>{
-                            console.error(err)
+                            //console.error(err)
                             return res.status(401)
                         })
 
@@ -251,19 +246,19 @@ app.post('/events/check_que',async (req,res) => {
 
 app.post('/events/check_userans',async (req,res) => {
     try{  const check_event_ans = req.body
-        console.log(check_event_ans);
-        const data_by_now_ans = await Question.find({});
+        //console.log(check_event_ans);
+        const data_by_now_ans = await Answer.find({userId:check_event_ans.user});
         const length_by_now_ans = data_by_now_ans.length;
-        console.log("event_bus length = ",length_by_now_ans)
+        //console.log("event_bus length = ",length_by_now_ans)
         if(check_event_ans.type === "USERANS" ){
             const userans_length = check_event_ans.check_data;
             diafora_ans = length_by_now_ans - userans_length;
-            console.log("diafora = ",diafora_ans)
+            //console.log("diafora = ",diafora_ans)
 
             if(diafora_ans > 0){
 
-                const not_passed_ans = await  Question.find({}).sort('-date').limit(diafora_ans);
-                console.log(not_passed_ans)
+                const not_passed_ans = await  Answer.find({userId: check_event_ans.user}).sort('-date').limit(diafora_ans);
+                //console.log(not_passed_ans)
                     config = {
                         method: 'post',
                         url: "http://localhost:4006/api/answers/crashed_userans",
@@ -272,7 +267,7 @@ app.post('/events/check_userans',async (req,res) => {
                     }
                     axios(config)
                         .then(result => {
-                            console.log("to esteila")
+                           // console.log("to esteila")
                             return res.status(201)
                         })
                         .catch(err =>{
@@ -294,6 +289,7 @@ app.post('/events',(req,res) => {
     // save in event-bus databse
     let newQuestion = new Question(event.newQuestion);
     newQuestion.save()
+
     // Create Question
     config_CREATE_QUESTION ={
         method:'post',
