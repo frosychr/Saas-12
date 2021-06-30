@@ -2,7 +2,6 @@
 
 <link rel="stylesheet" href="/css/forms.css">
 <link rel="stylesheet" href="/css/questions.css">
-<link rel="stylesheet" href="/css/buttons/cancel.css">
 <link rel="stylesheet" href="/css/top-navbar.css">
 <link rel="stylesheet" href="/css/backround_new_quest_ans.css">
 <script>
@@ -32,7 +31,6 @@
 
             function run() {
                 var x = document.getElementById("titles").value;
-                console.log(x)
                 var getFromBetween = {
                     results:[],
                     string:"",
@@ -75,7 +73,6 @@
                 };
                 var result = getFromBetween.get(x,"text:",",");
                 var keywords = getFromBetween.get(x,"keywords: [ "," ]");
-                console.log( result)
                 document.getElementById("srt").value = result;
                 document.getElementById("keywords").value = keywords;
             }
