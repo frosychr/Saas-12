@@ -24,6 +24,14 @@ exports.getnewans = (req, res, next) => {
                 return res.redirect('/')
             })*/ )
         }
+    else {
+        res.render('landing',
+            {
+                pageTitle: 'Landing Page',
+                path: '/',
+                isAuthenticated: req.session.isLoggedIn
+            });
+    }
 }
 
  exports.postnewans =  async (req, res) => {
