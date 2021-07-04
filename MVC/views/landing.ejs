@@ -3,6 +3,7 @@
 
 <link rel="stylesheet" href="/css/bottom_navbar.css">
 <link rel="stylesheet" href="/css/top-navbar.css">
+<link rel="stylesheet" href="/css/flipcard.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,30 +21,68 @@
         <%}%>
         </div>
     <div class="column">
-            <h3 >Ask a Question</h3>
-            <a href= "/newquestion">
-                <img src="../css/newq2.png " alt="Ask a question" style="width:150px;height:150px;">
-            </a>
-        </div>
-        <div class="column">
-            <h3 > Answer a Question</h3>
-            <a href= "/newanswer">
-                <img src="../css/answer.png " alt="Answer a question" style="width:150px;height:150px;">
-            </a>
 
+        <div class="flip-card">
+            <h3 >Question!</h3>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img  src="../css/question.png " alt="Avatar" class = "images">
+                </div>
+                <div class="flip-card-back">
+                    <a href= "/newquestion">
+                        <button class="button_flip" type="submit">Click here to Ask a Question</button>
+                    </a>
+                </div>
+            </div>
         </div>
-    <div class="column">
-            <h3 class="left" >Questions per keyword</h3>
-            <a href= "/perkeyword">
-                <img src="../css/statistics.jpg " alt="Ask a question" style="width:150px;height:150px;">
-            </a>
+        </div>
+
+        <div class="column">
+            <div class="flip-card">
+                <h3 >Answer!</h3>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img  src="../css/new_answer.png " alt="Avatar" class = "images" >
+                    </div>
+                    <div class="flip-card-back">
+                        <a href= "/newanswer">
+                            <button class="button_flip" type="submit">Click here to Answer a Question</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="column12">
+        <div class="flip-card">
+            <h3 >Questions Per Keyword!</h3>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img  src="../css/perk.png " alt="Avatar" class = "images">
+                </div>
+                <div class="flip-card-back">
+                    <a href= "/perkeyword">
+                        <button class="button_flip" type="submit">Click here to see Questions Per Keyword</button>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
         </div>
-    <div class="row">
-            <h3 class="centerh3"  >Postings per day</h3>
-            <a href= "/perday">
-                <img src="../css/statistics.jpg " alt="Ask a question" class="center" style="width:150px;height:150px;">
-            </a>
+
+    <div class="column12">
+        <div class="flip-card">
+            <h3 >Statistics!</h3>
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img  src="../css/perd.png " alt="Avatar" class = "images">
+                </div>
+                <div class="flip-card-back">
+                    <a href= "/perday">
+                        <button class="button_flip" type="submit">Click here to see total Statistics</button>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="navbar">
@@ -54,6 +93,8 @@
         <a href="https://github.com/frosychr/Saas-12">Link on Github</a>
         <a href="/technical/course_materials">Course Materials</a>
     </div>
+
+
 
 
 </main>

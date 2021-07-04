@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/css/allquestions.css">
 <link rel="stylesheet" href="/css/top-navbar.css">
 <link rel="stylesheet" href="/css/myask.css">
-
+<link rel="stylesheet" href="/css/flipcard.css">
 </head>
 
 <body>
@@ -13,23 +13,50 @@
     <div class="row_my">
 
         <div class="column_my">
-            <h3 >Ask a Question</h3>
-            <a href= "/newquestion">
-                <img src="../css/newq2.png " alt="Ask a question" style="width:150px;height:150px;">
-            </a>
+            <div class="flip-card">
+                <h3 >Question!</h3>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img  src="../css/question.png " alt="Avatar" class = "images">
+                    </div>
+                    <div class="flip-card-back">
+                        <a href= "/newquestion">
+                            <button class="button_flip" type="submit">Click here to Ask a Question</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="column_my">
-            <h3 > Answer a Question</h3>
-            <a href= "/newanswer">
-                <img src="../css/answer.png " alt="Answer a question" style="width:150px;height:150px;">
-            </a>
+            <div class="flip-card">
+                <h3 >Answer!</h3>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img  src="../css/new_answer.png " alt="Avatar" class = "images">
+                    </div>
+                    <div class="flip-card-back">
+                        <a href= "/newanswer">
+                            <button class="button_flip" type="submit">Click here to Answer a Question</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="column_my">
-            <h3 > My Contributions per Day</h3>
-            <a href= "/mycontrib">
-                <img src="../css/contrib.jpg " alt="Answer a question" style="width:150px;height:150px;">
-            </a>
+            <div class="flip-card">
+                <h3 > My Contributions per Day!</h3>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img  src="../css/mycontribution.png " alt="Avatar" class = "images">
+                    </div>
+                    <div class="flip-card-back">
+                        <a href= "/mycontrib">
+                            <button class="button_flip" type="submit">Click here to see Your Contributions</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -37,16 +64,36 @@
     <div class="row_my">
 
         <div class="column_my">
-            <h3 >My Questions</h3>
-            <a href= "/myquestions">
-                <img src="../css/cat.jpg " alt="Ask a question" style="width:150px;height:150px;">
-            </a>
+
+            <div class="flip-card">
+                <h3 >My Questions!</h3>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img  src="../css/myquestion.png " alt="Avatar" class = "images">
+                    </div>
+                    <div class="flip-card-back">
+                        <a href= "/myquestions">
+                            <button class="button_flip" type="submit">Click here to see Your Questions</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="column_my">
-            <h3 > My Answers</h3>
-            <a href= "/myanswers">
-                <img src="../css/cat.jpg " alt="Answer a question" style="width:150px;height:150px;">
-            </a>
+            <div class="flip-card">
+                <h3 > My Answers!</h3>
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img  src="../css/myanswer.png " alt="Avatar" class = "images">
+                    </div>
+                    <div class="flip-card-back">
+                        <a href= "/myanswers">
+                            <button class="button_flip" type="submit">Click here to see Your Answers</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>

@@ -23,11 +23,7 @@
     box-sizing: border-box;
 }
 
-.column {
-    text-align: center;
-    width: 33.33%;
-    padding: 15px;
-}
+
 
 /* Clearfix (clear floats) */
 .row::after {
@@ -84,6 +80,7 @@
         float: right;
         padding: 4px 11px;
         font-size: 15px;
+
     }
 
     .topnav a {
@@ -107,18 +104,14 @@
     }
     h1 {font-size: 110%; height:20%; }
 
-    .column {
-        text-align: center;
-        width: 33.33%;
 
-    }
     /* Clearfix (clear floats) */
     .row::after {
         text-align: center;
         content: "";
         clear: both;
         display: table;
-        padding-bottom: 100px;
+        margin-bottom: 80px;
         margin-top: 50px;
     }
 
