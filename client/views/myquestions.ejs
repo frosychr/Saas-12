@@ -8,22 +8,24 @@
 <%- include('includes/navigation.ejs') %>
 
 <main>
-    <div>
-        <h2 class ="header44" > My Questions</h2>
-    <% if (quest.length > 0) { %>
-        <h2 class="center1"> <b>Your Total Questions : </b><%=quest.length %>  </h2>
-        <% for(let question of quest) { %>
-        <button class="accordion"></b><%=question.title %></button>
-        <div class="panel">
+    <h2 class ="header44" > My Questions</h2>
+    <h2 class="center1"> <b>Your Total Questions : </b><%=quest.length %>  </h2>
+    <div class="container">
+
+        <% if (quest.length > 0) { %>
+
+            <% for(let question of quest) { %>
+            <button class="accordion"></b><%=question.title %></button>
+            <div class="panel">
                 <p> <b>Title: </b><%=question.title %>  </p>
-                <p><b>Question: </b><%=question.text %></p>
+                <p><b>Question: </b><%=question.subject %></p>
                 <p><b>Keywords: </b><%=question.keywords %></p>
             </div>
+            <% }%>
+        <% }
+        else{ %>
+            <h2> No questions yet!</h2>
         <% }%>
-    <% }
-    else{ %>
-        <h2> No questions yet!</h2>
-    <% }%>
     </div>
 
     <script>

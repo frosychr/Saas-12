@@ -1,7 +1,6 @@
 /* Chat containers */
 .container {
     border: 2px solid white;
-
     border-radius: 8px;
     padding: 5px;
     width: 680px;
@@ -86,6 +85,21 @@ h.header4{
 
 
 
+@media screen and (max-width: 650px) {
+    .accordion {
+        background-color: #b3e0ff;
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 55%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 16px;
+        transition: 0.4s;
+        font-family: 'Roboto Medium', sans-serif;
 
+    }
+}
 
 
