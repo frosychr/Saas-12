@@ -31,9 +31,9 @@ exports.contactpost = async (req,res,next) => {
 `;
         // create reusable transporter object using the default SMTP transport
         let transporter = nodemailer.createTransport({
-            service:'gmail',
+            service:'Hotmail',
             auth: {
-                user: 'askmeany2021@gmail.com', // generated ethereal user
+                user: 'AskMeAnything2021@outlook.com.gr', // generated ethereal user
                 pass: 'askme2021', // generated ethereal password
             },
             tls:
@@ -43,7 +43,7 @@ exports.contactpost = async (req,res,next) => {
         // send mail with defined transport object
         let info = await transporter.sendMail({
             from: '"AskMeAnything Contact Form"',
-            to: "askmeany2021@gmail.com", // list of receivers
+            to: "AskMeAnything2021@outlook.com.gr", // list of receivers
             subject: "AskMeAnything",
             text: "Message:",
             html: output
