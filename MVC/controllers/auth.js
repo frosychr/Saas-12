@@ -54,7 +54,6 @@ exports.postLogin = (req, res, next) => {
       .catch(err => console.log(err));
 };
 
-
 exports.postSignup = (req, res, next) => {
     const username = req.body.username;
     const email = req.body.email;
