@@ -9,19 +9,21 @@
 
 <main>
     <h2 class = "header44"> Your Answers</h2>
-    <div>
+
         <% if (quest.length > 0) { %>
         <h3 class="center1"> <b>Total Answers: </b><%=quest.length %>  </h3>
+    <div class = "container1">
         <% for(let question of quest) { %>
-        <div class = "container">
             <p class="groove"> <b>Answer: </b><%=question.text %>  </p>
-        </div>
+
         <% }%>
+
         <% }
         else{ %>
             <h2> No answers yet!</h2>
         <% }%>
     </div>
+
 </main>
 
 <%- include('includes/end.ejs') %>

@@ -9,8 +9,11 @@
 
 <%- include('includes/navigation.ejs') %>
 <main>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <h1 class = "landing_title"> View all Questions!</h1>
-    <div style="background-image: url('https://img4.goodfon.com/wallpaper/nbig/a/8b/vector-blue-squares-abstract-background-geometric.jpg');"></div>
+    <!-- <div style="background-image: url('https://img4.goodfon.com/wallpaper/nbig/a/8b/vector-blue-squares-abstract-background-geometric.jpg');"></div>
+    -->
     <div class="container">
         <% if (islogged === true) { %>
             <% if (quest.length > 0) { %>
