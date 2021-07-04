@@ -287,8 +287,15 @@ app.post('/events',(req,res) => {
     const event = req.body;
 
     // save in event-bus databse
-    let newQuestion = new Question(event.newQuestion);
-    newQuestion.save()
+    if(event.type === 'POST CREATED'){
+        let newQuestion = new Question(event.newQuestion);
+        newQuestion.save()
+    }
+    if(event.type === 'ANSWER CREATED'){
+        let newAnswer = new Answer(event.newAnswer);
+        newAnswer.save()
+    }
+
 
     // Create Question
     config_CREATE_QUESTION ={
@@ -298,8 +305,6 @@ app.post('/events',(req,res) => {
        //headers :  { "x-auth-token": req.header("x-auth-token") }
     }
 
-    let newAnswer = new Answer(event.newAnswer);
-    newAnswer.save()
     // Create Answer
     config_CREATE_ANSWER ={
         method:'post',
@@ -336,7 +341,7 @@ app.post('/events',(req,res) => {
     const createQuestion = new Promise((resolve,reject) => {
         axios(config_CREATE_QUESTION)
             .then(result => {
-                return res.json({})
+                return res.json()
             })
             .catch(err => {
 
@@ -348,7 +353,7 @@ app.post('/events',(req,res) => {
     const createAnswer = new Promise((resolve,reject) => {
         axios(config_CREATE_ANSWER)
             .then(result => {
-                return res.json({})
+                return res.json()
             })
             .catch(err => {
                 return res.status(500)

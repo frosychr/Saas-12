@@ -33,7 +33,6 @@ exports.getnewans = (req, res, next) => {
     const user = req.session.user;
     const questionid = temp.split(' [')[0];
 
-console.log( questionid)
      const config = {
          method:"post",
          url:"http://localhost:4002/api/answer",
@@ -49,6 +48,4 @@ console.log( questionid)
              console.log(err.response.data)
              return res.redirect('/newanswer')
          })
-
-
 };
