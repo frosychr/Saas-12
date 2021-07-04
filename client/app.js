@@ -6,8 +6,6 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
-
-
 const flash = require('connect-flash');
 
 // routes
@@ -16,8 +14,6 @@ const store = new MongoDBStore({
     uri: MONGODB_URI,
     collection : 'session'
 });
-
-
 
 // view engine
 app.set('view engine','ejs');

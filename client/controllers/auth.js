@@ -1,4 +1,5 @@
 const axios = require('axios')
+const bcrypt = require('bcryptjs');
 
 exports.getLogin = (req, res, next) => {
   res.render('auth/login', {
@@ -40,14 +41,21 @@ exports.postLogin = (req, res ,next) => {
 
 
 };
-
-
 exports.postSignup = (req, res, next) => {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
 
+    if(password.length < 6){
+        req.flash('error3','Please enter a valid password.');
+        return res.redirect('/signup');
+    }
+
+    if(password !== confirmPassword){
+        req.flash('error','Passwords do not match, please try again.');
+        return res.redirect('/signup');
+    }
     const config = {
         method:"post",
         url:"http://localhost:4000/api/signup",
@@ -61,7 +69,7 @@ exports.postSignup = (req, res, next) => {
             res.redirect('/login')
         })
         .catch(err =>{
-            console.log(err.response.data)
+            req.flash('error2','E-mail exists already, please pick a different one.');
             return res.redirect('/signup')
         })
 

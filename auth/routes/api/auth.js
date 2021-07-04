@@ -41,7 +41,6 @@ async (req,res) =>{
      let user = await User.findOne({ email });
     // check if there is no user registered
      if (!user) {
-         console.log('mphka')
        return res
          .status(400)
          .json({ errors: [{ msg: 'Invalid credentials' }] });
@@ -50,7 +49,6 @@ async (req,res) =>{
      // match the user with an email and password
      const isMatch = await bcrypt.compare(password,user.password);
      if(!isMatch){
-
         return res
         .status(400)
         .json({ errors: [{ msg: 'Invalid credentials' }] });
@@ -62,8 +60,6 @@ async (req,res) =>{
             id: user.id
         }
       }
-
-
       jwt.sign(payload, config.get('jwtSecret'),{expiresIn:360000 },
       (err,token)=>{
           payload.token = token
