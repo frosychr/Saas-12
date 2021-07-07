@@ -66,7 +66,7 @@ exports.postSignup = (req, res, next) => {
             req.session.isLoggedIn = true
             req.session.user = result.data.payload.user.id
             req.session.token = result.data.payload.token;
-            res.redirect('/login')
+            res.redirect('/')
         })
         .catch(err =>{
             req.flash('error2','E-mail exists already, please pick a different one.');
