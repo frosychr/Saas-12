@@ -31,6 +31,9 @@
         <script>
             function run() {
                 //var keywords = document.getElementById("test1").title.split('[')[0];
+                var temp = document.getElementById("titles").value.text;
+                console.log("edw:")
+                console.log(typeof temp)
                 var questionid = document.getElementById("titles").value.split('[')[0];
                 var keywords = document.getElementById("titles").value.split('[')[1].replace("]","");
                 var key = keywords.split('KEYWORDS')[1];
@@ -38,10 +41,6 @@
                 var ans1 = k.split('[')[1]
                 var ans2 = ans1.split('KEYWORD')[0];
 
-                //var answers = document.getElementById("test1").title.split('[')[1];
-               // console.log(answers);
-
-                console.log(ans2);
                var getFromBetween = {
                     results:[],
                     string:"",
@@ -84,10 +83,9 @@
                 };
                 var answers1 = getFromBetween.get(ans2,"text","}");
                 const answers2 = JSON.stringify(answers1)
-                console.log(answers2);
                 const answers3 = answers2.replace(/:/g, '')
                 const obj = JSON.parse(answers3)
-                console.log(obj);
+
                 document.getElementById("srt").value = obj;
 
                 document.getElementById("keywords").value = key;
@@ -95,12 +93,7 @@
             }
         </script>
 
-
         <div class="custom-select" >
-
-
-
-
             <select id="titles" name="titles"onchange="run()">  <!--Call run() function-->
                 <option value="0">Titles:</option>
                 <% if (quest.length > 0) { %>
@@ -116,7 +109,6 @@
                     <h2> No questions yet!</h2>
                 <% }%>
             </select>
-
 
 
         </div><br><br>
