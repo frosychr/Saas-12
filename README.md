@@ -3,7 +3,7 @@
 
 This app is compatible with Unix and Unix-like operating systems.
 
-## :zap: AskMeAnything App
+## :question: AskMeAnything App
 
 This project aims to provide an Q&A Web Application, which will allow:
 
