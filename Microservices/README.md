@@ -1,6 +1,6 @@
 # Saas-12
 
-:gear: **Microservices Architecture**
+# :gear: **Microservices Architecture**
 
 Microservices Web App: https://ms-client-askmeanything.herokuapp.com/
 
@@ -14,3 +14,5 @@ The services that were implemented are:
 * **User statistics:** Each registered user can see his contribution and his total questions and answers.
 * **Event-bus:** All the services above "communicating" with each other through the event-bus. Every time a service posts, it also sends the new data to event-bus so that every service is "interested" in the new data can be updated.
 *  **Client:** The front-end of the web app. It communicates with all the services (through axios posts) except the event-bus and doen't have a database.
+
+# :boom: **What happens when a service is down or crashs**
