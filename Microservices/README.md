@@ -18,4 +18,5 @@ The services that were implemented are:
 ## :boom: **What happens when a service is down or crashes**
 
 In general all the new data is stored in event-bus's database.
+
 When the service that was previously down is running again, it will be updated from the event bus.
