@@ -411,7 +411,5 @@ Promise.all([createAnswer,createQuestion,createQuestionPerKeyword,createQuestion
     })
 })
 
-app.listen(4005, () => {
-    console.log('Listening at port 4005...')
-})
+app.listen(process.env.PORT || 4005)
 

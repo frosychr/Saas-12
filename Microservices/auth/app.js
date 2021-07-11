@@ -17,8 +17,6 @@ app.use('/api/signup', require('./routes/api/users'));
 app.use('/api/login', require('./routes/api/auth'));
 app.use('/api/logout',require('./routes/api/logout'));
 
-app.listen(4000, () => {
-    console.log('Listening on 4000');
-});
+app.listen(process.env.PORT || 4000);
 
 module.exports = app;

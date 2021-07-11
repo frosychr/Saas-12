@@ -21,6 +21,4 @@ app.use('/api/answers', require('./routes/api/answers'));
 app.use('/api/mycontrib', require('./routes/api/mycontrib'));
 
 
-app.listen(4006, () => {
-    console.log('Listening on 4006');
-});
+app.listen(process.env.PORT || 4006);

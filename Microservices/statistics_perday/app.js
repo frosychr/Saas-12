@@ -19,6 +19,4 @@ app.use(express.json());
 app.use('/api/perday', require('./routes/api/perday'));
 
 
-app.listen(4003, () => {
-    console.log('Listening on 4003');
-});
+app.listen(process.env.PORT || 4003);

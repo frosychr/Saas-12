@@ -19,6 +19,4 @@ app.use(express.json());
 app.use('/api/perkeyword', require('./routes/api/perkeyword'));
 
 
-app.listen(4004, () => {
-    console.log('Listening on 4004');
-});
+app.listen(process.env.PORT || 4004);

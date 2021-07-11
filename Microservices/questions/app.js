@@ -21,10 +21,7 @@ app.use(express.json());
 app.use('/api/question', require('./routes/api/question'));
 app.use('/api/allquestions',require('./routes/api/allquestions'));
 
-app.listen(4001, async () => {
-    console.log('Listening on 4001');
-
-});
+app.listen(process.env.PORT || 4001);
 
 
 module.exports = app;
