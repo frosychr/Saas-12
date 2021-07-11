@@ -29,10 +29,11 @@ The app was developed using 2 architectures:
 * MVC
 * Microservices
 
-and uses Node.js,Express.js for the Backend, ejs template engine for the Frontend and  _MongoDB Atlas_ :leaves: database.
+and uses Node.js, Express.js for the Backend, ejs template engine for the Frontend and  _MongoDB Atlas_ :leaves: database.
 
 Backend - Frontend communication is explainded within the two architectures.
 
+## :cloud: Deployment  
 Both architectures were deployed in Cloud with Heroku. The urls are:
 * MVC Web App: https://mvc-askmeanything.herokuapp.com/
 * Microservices Web App: https://ms-client-askmeanything.herokuapp.com/
