@@ -4,7 +4,7 @@ exports.getmyquestions =  (req, res) => {
     const user = req.session.user
     const config = {
         method:"get",
-        url:"http://localhost:4006/api/questions",
+        url:"https://ms-userstats-askmeanything.herokuapp.com/api/questions",
         data:{user:user}
     }
     axios(config)

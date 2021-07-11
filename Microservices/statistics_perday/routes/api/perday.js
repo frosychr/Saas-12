@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
     const perday_length = data_by_now.length;
     config = {
         method: 'post',
-        url: "http://localhost:4005/events/check",
+        url: "https://ms-eventbus-askmeanything.herokuapp.com/events/check",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
         data : { type: "PERDAY" , check_data:perday_length}
     }
@@ -64,7 +64,7 @@ router.get('/', async (req, res) => {
     const perday_length_ans = data_by_now_ans.length;
     config = {
         method: 'post',
-        url: "http://localhost:4005/events/check_ans",
+        url: "https://ms-eventbus-askmeanything.herokuapp.com/events/check_ans",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
         data : { type: "PERDAY" , check_data:perday_length_ans}
     }

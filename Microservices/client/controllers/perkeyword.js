@@ -3,7 +3,7 @@ exports.getperkeyword =  (req, res) => {
 
     const config = {
         method:"get",
-        url:"http://localhost:4004/api/perkeyword"
+        url:"https://ms-statsperkeywo-askmeanything.herokuapp.com/api/perkeyword"
     }
     axios(config)
         .then(result =>{

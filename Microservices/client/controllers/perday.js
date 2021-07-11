@@ -3,7 +3,7 @@ exports.getperday =  (req, res) => {
 
     const config = {
         method:"get",
-        url:"http://localhost:4003/api/perday"
+        url:"https://ms-statsperday-askmeanything.herokuapp.com/api/perday"
     }
     axios(config)
         .then(result =>{

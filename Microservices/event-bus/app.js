@@ -26,7 +26,7 @@ app.post('/events/check',async (req,res) => {
 
                     config = {
                         method: 'post',
-                        url: "http://localhost:4003/api/perday/crashed",
+                        url: "https://ms-statsperday-askmeanything.herokuapp.com/api/perday/crashed",
                         // headers :  { "x-auth-token": req.header("x-auth-token") },
                         data : {data: not_passed}
                     }
@@ -66,7 +66,7 @@ app.post('/events/check_ans',async (req,res) => {
                 //console.log(not_passed_ans)
                     config = {
                         method: 'post',
-                        url: "http://localhost:4003/api/perday/crashed_ans",
+                        url: "https://ms-statsperday-askmeanything.herokuapp.com/api/perday/crashed_ans",
                         // headers :  { "x-auth-token": req.header("x-auth-token") },
                         data : {data: not_passed_ans}
                     }
@@ -105,7 +105,7 @@ app.post('/events/check_keyword',async (req,res) => {
                 //console.log(not_passed_keyword)
                     config = {
                         method: 'post',
-                        url: "http://localhost:4004/api/perkeyword/crashed_perkey",
+                        url: "https://ms-statsperkeywo-askmeanything.herokuapp.com/api/perkeyword/crashed_perkey",
                         // headers :  { "x-auth-token": req.header("x-auth-token") },
                         data : {data: not_passed_keyword}
                     }
@@ -144,7 +144,7 @@ app.post('/events/mycon_check',async (req,res) => {
                // console.log(mnot_passed)
                     config = {
                         method: 'post',
-                        url: "http://localhost:4006/api/mycontrib/mycon_crashed",
+                        url: "https://ms-userstats-askmeanything.herokuapp.com/api/mycontrib/mycon_crashed",
                         // headers :  { "x-auth-token": req.header("x-auth-token") },
                         data : {data: mnot_passed}
                     }
@@ -184,7 +184,7 @@ app.post('/events/mycon_check_ans',async (req,res) => {
              //   console.log(mnot_passed_ans)
                     config = {
                         method: 'post',
-                        url: "http://localhost:4006/api/mycontrib/mycon_crashed_ans",
+                        url: "https://ms-userstats-askmeanything.herokuapp.com/api/mycontrib/mycon_crashed_ans",
                         // headers :  { "x-auth-token": req.header("x-auth-token") },
                         data : {data: mnot_passed_ans}
                     }
@@ -222,7 +222,7 @@ app.post('/events/check_que',async (req,res) => {
                // console.log(not_passed_que)
                     config = {
                         method: 'post',
-                        url: "http://localhost:4006/api/questions/crashed_que",
+                        url: "https://ms-userstats-askmeanything.herokuapp.com/api/questions/crashed_que",
                         // headers :  { "x-auth-token": req.header("x-auth-token") },
                         data : {data: not_passed_que}
                     }
@@ -261,7 +261,7 @@ app.post('/events/check_userans',async (req,res) => {
                 //console.log(not_passed_ans)
                     config = {
                         method: 'post',
-                        url: "http://localhost:4006/api/answers/crashed_userans",
+                        url: "https://ms-userstats-askmeanything.herokuapp.com/api/answers/crashed_userans",
                         // headers :  { "x-auth-token": req.header("x-auth-token") },
                         data : {data: not_passed_ans}
                     }
@@ -300,7 +300,7 @@ app.post('/events',(req,res) => {
     // Create Question
     config_CREATE_QUESTION ={
         method:'post',
-        url:'http://localhost:4001/api/question/events',
+        url:'https://ms-questions-askmeanything.herokuapp.com/api/question/events',
         data : event,
        //headers :  { "x-auth-token": req.header("x-auth-token") }
     }
@@ -308,33 +308,33 @@ app.post('/events',(req,res) => {
     // Create Answer
     config_CREATE_ANSWER ={
         method:'post',
-        url:'http://localhost:4002/api/answer/events',
+        url:'https://ms-answers-askmeanything.herokuapp.com/api/answer/events',
         data : event,
         //headers :  { "x-auth-token": req.header("x-auth-token") }
     }
     // Create Question per Keyword
     config_CREATE_QUESTION_PER_KEYWORD ={
         method:'post',
-        url:'http://localhost:4004/api/perkeyword/events',
+        url:'https://ms-statsperkeywo-askmeanything.herokuapp.com/api/perkeyword/events',
         data : event,
         //headers :  { "x-auth-token": req.header("x-auth-token") }
     }
 
     config_CREATE_QUESTION_STATS ={
         method:'post',
-        url:'http://localhost:4003/api/perday/events',
+        url:'https://ms-statsperday-askmeanything.herokuapp.com/api/perday/events',
         data : event
     }
 
     config_CREATE_QUESTION_USER ={
         method:'post',
-        url:'http://localhost:4006/api/questions/events',
+        url:'https://ms-userstats-askmeanything.herokuapp.com/api/questions/events',
         data : event
     }
 
     config_CREATE_ANSWER_USER ={
         method:'post',
-        url:'http://localhost:4006/api/answers/events',
+        url:'https://ms-userstats-askmeanything.herokuapp.com/api/answers/events',
         data : event
     }
 

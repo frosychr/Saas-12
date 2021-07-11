@@ -24,7 +24,7 @@ exports.getSignup = (req, res, next) => {
 exports.postLogin = (req, res ,next) => {
   const config = {
       method:"post",
-      url:"http://localhost:4000/api/login",
+      url:"https://ms-auth-askmeanything.herokuapp.com/api/login",
       data: req.body
   }
   axios(config)
@@ -58,7 +58,7 @@ exports.postSignup = (req, res, next) => {
     }
     const config = {
         method:"post",
-        url:"http://localhost:4000/api/signup",
+        url:"https://ms-auth-askmeanything.herokuapp.com/api/signup",
         data: req.body
     }
     axios(config)

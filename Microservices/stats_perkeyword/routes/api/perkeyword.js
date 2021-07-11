@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
     const perkeyword_length = data_by_now.length;
     config = {
         method: 'post',
-        url: "http://localhost:4005/events/check_keyword",
+        url: "https://ms-eventbus-askmeanything.herokuapp.com/events/check_keyword",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
         data : { type: "PERKEYWORD" , check_data:perkeyword_length}
     }

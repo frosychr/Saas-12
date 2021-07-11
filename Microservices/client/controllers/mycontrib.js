@@ -5,7 +5,7 @@ exports.getmycontrib =  (req, res) => {
     //console.log(user);
     const config = {
         method:"get",
-        url:"http://localhost:4006/api/mycontrib",
+        url:"https://ms-userstats-askmeanything.herokuapp.com/api/mycontrib",
         data:{user:user}
     }
     axios(config)

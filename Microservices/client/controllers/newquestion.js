@@ -29,7 +29,7 @@ exports.postnewquest = (req,res,next) => {
 
     const config = {
         method:"post",
-        url:"http://localhost:4001/api/question",
+        url:"https://ms-questions-askmeanything.herokuapp.com/api/question",
         data: {data,user}
     }
     axios(config)
@@ -48,8 +48,8 @@ exports.allquests = async (req, res, next)=> {
     const checkauth = req.session.isLoggedIn;
     if(checkauth){
         axios.all([
-            axios.get(`http://localhost:4001/api/allquestions`),
-            axios.get(`http://localhost:4002/api/allanswers`),
+            axios.get(`https://ms-questions-askmeanything.herokuapp.com/api/allquestions`),
+            axios.get(`https://ms-answers-askmeanything.herokuapp.com/api/allanswers`),
 
         ])
             .then(axios.spread((result, data2) =>{
@@ -68,7 +68,7 @@ exports.allquests = async (req, res, next)=> {
     else{
         const config = {
             method:"get",
-            url:"http://localhost:4001/api/allquestions/visitor"
+            url:"https://ms-questions-askmeanything.herokuapp.com/api/allquestions/visitor"
         }
         axios(config)
             .then(result =>{

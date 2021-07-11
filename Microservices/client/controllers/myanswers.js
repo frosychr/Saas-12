@@ -4,7 +4,7 @@ exports.getmyanswers =  (req, res) => {
     //console.log(user);
     const config = {
         method:"get",
-        url:"http://localhost:4006/api/answers",
+        url:"https://ms-userstats-askmeanything.herokuapp.com/api/answers",
         data:{user:user}
     }
     axios(config)

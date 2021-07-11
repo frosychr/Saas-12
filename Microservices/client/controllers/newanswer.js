@@ -4,8 +4,8 @@ exports.getnewans = (req, res, next) => {
     const checkauth =  req.session.isLoggedIn
     if(checkauth){
        axios.all([
-           axios.get(`http://localhost:4001/api/allquestions`),
-           axios.get(`http://localhost:4002/api/allanswers`)
+           axios.get(`https://ms-questions-askmeanything.herokuapp.com/api/allquestions`),
+           axios.get(`https://ms-answers-askmeanything.herokuapp.com/api/allanswers`)
 
        ])
             .then(axios.spread((result, data2) =>{
@@ -43,7 +43,7 @@ exports.getnewans = (req, res, next) => {
 
      const config = {
          method:"post",
-         url:"http://localhost:4002/api/answer",
+         url:"https://ms-answers-askmeanything.herokuapp.com/api/answer",
          data: {text,user,questionid}
      }
 

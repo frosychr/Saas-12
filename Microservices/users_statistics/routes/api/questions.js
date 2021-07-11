@@ -27,7 +27,7 @@ router.get('/',async (req, res) => {
         const userque_length = data_by_now.length;
     config = {
         method: 'post',
-        url: "http://localhost:4005/events/check_que",
+        url: "https://ms-eventbus-askmeanything.herokuapp.com/events/check_que",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
         data : { type: "USERQUEST" , check_data:userque_length, user:user}
     }

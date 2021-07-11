@@ -43,7 +43,7 @@ router.get('/',async (req, res) => {
     const mycontrib_length = data_by_now.length;
     config = {
         method: 'post',
-        url: "http://localhost:4005/events/mycon_check",
+        url: "https://ms-eventbus-askmeanything.herokuapp.com/events/mycon_check",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
         data : { type: "MYCONTRIB" , check_data:mycontrib_length,user:user}
     }
@@ -58,7 +58,7 @@ router.get('/',async (req, res) => {
     const mycontrib_length_ans = data_by_now_ans.length;
     config = {
         method: 'post',
-        url: "http://localhost:4005/events/mycon_check_ans",
+        url: "https://ms-eventbus-askmeanything.herokuapp.com/events/mycon_check_ans",
         // headers :  { "x-auth-token": req.header("x-auth-token") },
         data : { type: "MYCONTRIB" , check_data:mycontrib_length_ans}
     }

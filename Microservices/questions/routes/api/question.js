@@ -42,7 +42,7 @@ router.post(
 
             config = {
                 method: 'post',
-                url: "http://localhost:4005/events",
+                url: "https://ms-eventbus-askmeanything.herokuapp.com/events",
                // headers :  { "x-auth-token": req.header("x-auth-token") },
                 data : { type: "POST CREATED" , newQuestion:newQuestion}
             }
