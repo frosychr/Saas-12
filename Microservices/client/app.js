@@ -86,7 +86,7 @@ mongoose
     .connect(MONGODB_URI)
     .then(result => {
         console.log('Mongodb Connected');
-        app.listen(3001);
+        app.listen(3001 || process.env.PORT);
     })
 
 .catch(err => {
